@@ -1,0 +1,15 @@
+{
+  "name": "quark-carlo-placeholder",
+  "version": "0.0.0",
+  "description": "Placeholder for quark-carlo based app",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SiDevesh",
+  "license": "MIT",
+  "dependencies": {
+    "carlo": "^0.9.18"
+  }
+}

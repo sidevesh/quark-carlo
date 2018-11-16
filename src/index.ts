@@ -7,8 +7,10 @@ import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs'
 const { exec:pkgExec } = require('pkg')
 import pageIcon = require('page-icon')
 const probeSize = require('probe-image-size')
+import sharp = require('sharp')
 
 const placeholderAppName = 'quark-carlo-placeholder'
+const linuxIconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
 const platform = osPlatform()
 const isLinux = () => platform === 'linux'
@@ -103,19 +105,37 @@ class QuarkCarlo extends Command {
                         .then((result:any) => {
                           if (result.width !== result.height) throw 'icon dimensions not equal'
                           this.log('Appropriate icon file fetched...')
-                          if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(result.width, true))) {
-                            mkdir(getLinuxInstallationDesktopFilesIconFilesPath(result.width, true))
-                          }
-                          if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(result.width))) {
-                            mkdir(getLinuxInstallationDesktopFilesIconFilesPath(result.width))
-                          }
-                          writeFile(
-                            `${getLinuxInstallationDesktopFilesIconFilesPath(result.width)}/${binaryName}${icon.ext}`,
-                            icon.data,
-                            { mode: 0o666, flag: 'w' },
-                            (err) => {
-                              if (err) throw err
-                              this.log('Icon file generated...')
+                          const iconGenerationPromises:Array<Promise<string>> = linuxIconSizes.map((size) => new Promise((resolve, reject) => {
+                            sharp(icon.data)
+                              .resize(size, size)
+                              .toBuffer()
+                              .then((resizedIconData:any) => {
+                                if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size, true))) {
+                                  mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size, true))
+                                }
+                                if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size))) {
+                                  mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size))
+                                }
+                                writeFile(
+                                  `${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`,
+                                  resizedIconData,
+                                  { mode: 0o666, flag: 'w' },
+                                  (err) => {
+                                    if (err) {
+                                      reject(err)
+                                    } else {
+                                      this.log(`Icon file of ${size}x${size} generated...`)
+                                      resolve(`${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`)
+                                    }
+                                  }
+                                )
+                              })
+                              .catch((err:any) => {
+                                reject(err)
+                              })
+                          }))
+                          Promise.all(iconGenerationPromises)
+                            .then((iconPaths) => {
                               cat(`${__dirname}/../installation/linux/app.desktop`)
                                 .sed('@@NAME@@', name)
                                 .sed('@@PATH@@', `${execPath}/${binaryName}`)
@@ -125,9 +145,13 @@ class QuarkCarlo extends Command {
                               this.log('Shortcut installation complete...')
                               this.log('To remove installation of shortcut, remove following files:')
                               this.log(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
-                              this.log(`${getLinuxInstallationDesktopFilesIconFilesPath(result.width)}/${binaryName}${icon.ext}`)
-                            }
-                          )
+                              iconPaths.forEach((iconPath) => {
+                                this.log(iconPath)
+                              })
+                            })
+                            .catch((err:any) => {
+                              throw err
+                            })
                         })
                         .catch((err:any) => {
                           throw err

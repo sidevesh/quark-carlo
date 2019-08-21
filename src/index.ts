@@ -4,13 +4,15 @@ import { open, writeFile, close } from 'fs'
 import { format } from 'util'
 import { dir as tempDir } from 'tmp'
 import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs' 
-const { exec:pkgExec } = require('pkg')
 import pageIcon = require('page-icon')
-const probeSize = require('probe-image-size')
 import sharp = require('sharp')
+const pngToIco = require('png-to-ico')
+const { exec:pkgExec } = require('pkg')
+const probeSize = require('probe-image-size')
+const createNodeAppWithoutTerminal = require('create-nodew-exe')
 
 const placeholderAppName = 'quark-carlo-placeholder'
-const linuxIconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
+const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
 const isLinux = () => osPlatform() === 'linux'
 const isWindows = () => osPlatform() === 'win32'
@@ -112,12 +114,55 @@ class QuarkCarlo extends Command {
               ls(tempDirPath)
                 .filter((fileName) => {
                   if (platform === 'win') {
-                    return fileName === `${placeholderAppName}.exe`;
+                    return fileName === `${placeholderAppName}.exe`
                   }
 
-                  return fileName === placeholderAppName;
+                  return fileName === placeholderAppName
                 })
-                .forEach(fileName => cp(`${tempDirPath}/${fileName}`, `${execPath}/${binaryName}${platform === 'win' ? '.exe' : ''}`))
+                .forEach((fileName) => {
+                  if (platform === 'win') {
+                    const outPath =  `${execPath}/${binaryName}.exe`
+                    cp(`${tempDirPath}/${fileName}`, outPath)
+                    this.log('Making binary silent on launch...')
+                    createNodeAppWithoutTerminal({
+                      src: outPath,
+                      dst: outPath,
+                    })
+                    this.log('Creating ico for the app...')
+                    pageIcon(url)
+                      .then((icon) => {
+                        if (icon === undefined) throw 'icon fetch failed'
+                        if (icon.ext.toLowerCase() !== '.png') throw 'icon not png'
+                        probeSize(icon.source)
+                          .then((result:any) => {
+                            if (result.width !== result.height) throw 'icon dimensions not equal'
+                            this.log('Appropriate icon file fetched...')
+                            pngToIco(icon.source)
+                              .then((buf: any) => {
+                                writeFile(
+                                  `${tempDirPath}/icon.ico`,
+                                  buf,
+                                  (err) => {
+                                    if (err) {
+                                      throw 'writing ico file failed'
+                                    } else {
+                                      this.log('Ico file genrated...')
+                                    }
+                                  },
+                                )
+                              })
+                              .catch(() => this.error('Ico generation failed'))
+                          })
+                          .catch((err:any) => {
+                            throw err
+                          })
+                      })
+                      .catch((err:any) => this.error(err))
+
+                  } else {
+                    cp(`${tempDirPath}/${fileName}`, `${execPath}/${binaryName}`)
+                  }
+                })
               this.log('Generated binary successfully...')
               if (install) {
                 if (platform === 'host' || platform === getPlatform()) {
@@ -132,7 +177,7 @@ class QuarkCarlo extends Command {
                           .then((result:any) => {
                             if (result.width !== result.height) throw 'icon dimensions not equal'
                             this.log('Appropriate icon file fetched...')
-                            const iconGenerationPromises:Array<Promise<string>> = linuxIconSizes.map((size) => new Promise((resolve, reject) => {
+                            const iconGenerationPromises:Array<Promise<string>> = iconSizes.map((size) => new Promise((resolve, reject) => {
                               sharp(icon.data)
                                 .resize(size, size)
                                 .toBuffer()
@@ -197,6 +242,7 @@ class QuarkCarlo extends Command {
                 }
               }
             })
+            .catch(() => this.error('Binary packaging failed'))
         } else {
           this.error('npm install failed')
         }

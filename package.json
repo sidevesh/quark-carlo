@@ -16,7 +16,7 @@
     "@types/shelljs": "^0.8.5",
     "@types/tmp": "0.0.33",
     "page-icon": "^0.3.0",
-    "pkg": "^4.4.0",
+    "pkg": "4.3.8",
     "probe-image-size": "^4.1.1",
     "sharp": "^0.21.3",
     "shelljs": "^0.8.3",

@@ -8,11 +8,13 @@ import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
 import pngToIco = require('png-to-ico')
+import npmLog = require('npmlog')
 const probeSize = require('probe-image-size')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 const windowsShortcut = require('windows-shortcuts')
-
 const { exec: pkgExec } = require('pkg')
+
+npmLog.level = 'warn'
 
 const placeholderAppName = 'quark-carlo-placeholder'
 const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]

@@ -7,8 +7,7 @@
     "rootDir": "src",
     "strict": true,
     "target": "es2017",
-    "composite": true,
-    "tsBuildInfoFile": "lib/tsconfig.tsbuildinfo"
+    "composite": true
   },
   "include": [
     "src/**/*"

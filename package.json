@@ -48,6 +48,14 @@
   "oclif": {
     "bin": "quark-carlo"
   },
+  "files": [
+    "/app",
+    "/bin",
+    "/installation",
+    "/lib",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": "SiDevesh/quark-carlo",
   "scripts": {
     "posttest": "tslint -p test -t stylish",

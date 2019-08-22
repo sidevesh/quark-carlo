@@ -1,7 +1,7 @@
 {
   "name": "quark-carlo",
   "description": "Turn web apps into lightweight native desktop applications that use chrome as webview, powered by the awesome carlo",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "author": "SiDevesh",
   "bin": {
     "quark-carlo": "./bin/run"

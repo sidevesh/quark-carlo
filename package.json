@@ -11,11 +11,6 @@
     "@oclif/command": "^1.5.18",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
-    "@types/node-fetch": "^2.5.0",
-    "@types/page-icon": "^0.3.2",
-    "@types/sharp": "^0.21.3",
-    "@types/shelljs": "^0.8.5",
-    "@types/tmp": "0.0.33",
     "create-nodew-exe": "^1.0.5",
     "node-fetch": "^2.6.0",
     "page-icon": "^0.3.0",
@@ -34,6 +29,11 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.14.15",
+    "@types/node-fetch": "^2.5.0",
+    "@types/page-icon": "^0.3.2",
+    "@types/sharp": "^0.21.3",
+    "@types/shelljs": "^0.8.5",
+    "@types/tmp": "0.0.33",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
@@ -44,12 +44,6 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "files": [
-    "/bin",
-    "/lib",
-    "/app",
-    "/installation"
-  ],
   "homepage": "https://github.com/SiDevesh/quark-carlo",
   "keywords": [
     "oclif"

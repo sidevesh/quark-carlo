@@ -1,0 +1,9 @@
+*-debug.log
+*-error.log
+/.nyc_output
+/tmp
+/yarn.lock
+.profile
+/lib/tsconfig.tsbuildinfo
+/src
+.editorconfig

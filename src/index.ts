@@ -6,8 +6,9 @@ import { dir as tempDir } from 'tmp'
 import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs' 
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
+const windowsShortcut = require('windows-shortcuts')
 const pngToIco = require('png-to-ico')
-const { exec:pkgExec } = require('pkg')
+const { exec: pkgExec } = require('pkg')
 const probeSize = require('probe-image-size')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 
@@ -30,23 +31,56 @@ const getPlatform = () => {
   }
 }
 
-const execPath:string = pwd().valueOf()
+const execPath = pwd().valueOf()
 
 const getLinuxInstallationDesktopFilesPath = () => {
   cd()
-  const homePath:string = pwd().valueOf()
+  const homePath = pwd().valueOf()
   cd(execPath)
   return `${homePath}/.local/share/applications`
 }
 
 const getLinuxInstallationDesktopFilesIconFilesPath = (dimension:number, tillDimension:boolean = false) => {
   cd()
-  const homePath:string = pwd().valueOf()
+  const homePath = pwd().valueOf()
   cd(execPath)
   return `${homePath}/.local/share/icons/hicolor/${dimension}x${dimension}${tillDimension ? '' : '/apps'}`
 }
 
+const getWIndowsInstallationStartMenuShortcutFilesPath = () => {
+  cd()
+  const homePath = pwd().valueOf()
+  cd(execPath)
+  return `${homePath}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs`
+}
+
 const filenameSafe = (str:string) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+
+const getProperPageIcon = (url:string):Promise<PageIcon.Icon> => new Promise((resolve, reject) => {
+  pageIcon(url)
+    .then((icon) => {
+      if (icon === undefined) {
+        return reject('icon fetch failed')
+      }
+      if (icon.ext.toLowerCase() !== '.png') {
+        return reject('icon not png')
+      }
+      probeSize(icon.source)
+        .then((result:any) => {
+          if (result.width !== result.height) {
+            return reject('icon dimensions not equal')
+          }
+          resolve(icon)
+        })
+        .catch(() => {
+          return reject('size calculation failed')
+        })
+    })
+    .catch(() => {
+      return reject('size calculation failed')
+    })
+})
+
 
 class QuarkCarlo extends Command {
   static description = 'Create native app from any web app, optionally install a shortcut so that the app shows up in the application menu'
@@ -65,20 +99,98 @@ class QuarkCarlo extends Command {
     }),
   }
 
+  async installShortcut(binaryName:string, platform:string, { url = null, shortcutFilePath = null }:{ url:string|null, shortcutFilePath:string|null }) {
+    if (platform === 'host' || platform === getPlatform()) {
+      this.log('Installing shortcut...')
+      if (isLinux()) {
+        if (url === null) throw 'no url supplied'
+        this.log('Looking for appropriate icon image...')
+        getProperPageIcon(url)
+          .then((icon) => {
+            this.log('Appropriate icon file fetched...')
+            const iconGenerationPromises:Array<Promise<string>> = iconSizes.map((size) => new Promise((resolve, reject) => {
+              sharp(icon.data)
+                .resize(size, size)
+                .toBuffer()
+                .then((resizedIconData) => {
+                  if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size, true))) {
+                    mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size, true))
+                  }
+                  if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size))) {
+                    mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size))
+                  }
+                  writeFile(
+                    `${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`,
+                    resizedIconData,
+                    { mode: 0o666, flag: 'w' },
+                    (err) => {
+                      if (err) {
+                        return reject(err)
+                      } else {
+                        this.log(`Icon file of ${size}x${size} generated...`)
+                        resolve(`${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`)
+                      }
+                    }
+                  )
+                })
+                .catch((err) => {
+                  return reject(err)
+                })
+            }))
+            Promise.all(iconGenerationPromises)
+              .then((iconPaths) => {
+                cat(`${__dirname}/../installation/linux/app.desktop`)
+                  .sed('@@NAME@@', name)
+                  .sed('@@PATH@@', `${execPath}/${binaryName}`)
+                  .sed('@@FILENAME@@', `${binaryName}`)
+                  .to(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
+                this.log('Desktop file generated...')
+                this.log('Shortcut installation complete...')
+                this.log('To remove installation of shortcut, remove following files:')
+                this.log(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
+                iconPaths.forEach((iconPath) => {
+                  this.log(iconPath)
+                })
+              })
+              .catch((err) => {
+                throw err
+              })
+          })
+          .catch((err) => {
+            this.error('Icon generation failed')
+          })
+      } else if (isWindows()) {
+        if (shortcutFilePath === null) throw 'no shortcut file path supplied'
+        this.log('Copying shortcut to Start Menu...')
+        cp(shortcutFilePath, `getWIndowsInstallationStartMenuShortcutFilesPath()/${filenameSafe(name)}.lnk`)
+        this.log('Shortcut added to Start Menu...')
+        this.log('Shortcut installation complete...')
+        this.log('To remove installation of shortcut, remove following files:')
+        this.log(`getWIndowsInstallationStartMenuShortcutFilesPath()/${filenameSafe(name)}.lnk`)
+      } else if (isMac()) {
+        this.log('Creating shortcut for mac os isn\'t supported yet')
+      } else {
+        this.log(`Creating shortcut for ${getPlatform()} isn\'t supported yet`)
+      }
+    } else {
+      this.error('Shortcut can only be installed if the platform is the same as the running platform')
+    }
+  }
+
   async run() {
     const { flags } = this.parse(QuarkCarlo)
     const { name, url, dimensions, install } = flags
     let { platform } = flags
-    const binaryName:string = `${filenameSafe(name)}-quark`
+    const binaryName = `${filenameSafe(name)}-quark`
 
-    let width:number = 1280
-    let height:number = 720
+    let width = 1280
+    let height = 720
 
     try {
       if (dimensions === undefined) throw 'dimensions undefined'
       if (dimensions.split('x').length !== 2) throw 'dimensions invalid format'
-      const parsedWidth:number = parseInt(dimensions.split('x')[0])
-      const parsedHeight:number = parseInt(dimensions.split('x')[1])
+      const parsedWidth = parseInt(dimensions.split('x')[0])
+      const parsedHeight = parseInt(dimensions.split('x')[1])
       if (isNaN(parsedWidth) || isNaN(parsedHeight)) throw 'dimension is not a number'
       width = parsedWidth
       height = parsedHeight
@@ -91,7 +203,7 @@ class QuarkCarlo extends Command {
       platform = 'host'
       this.warn('Invalid platform value, building for running platform')
     }
-    const config:string = JSON.stringify({
+    const config = JSON.stringify({
       name,
       url,
       width,
@@ -107,139 +219,101 @@ class QuarkCarlo extends Command {
       exec('npm install', { silent: true }, (code) => {
         cd(execPath)
         if (code === 0) {
-          this.log('Installing dependencies succeeded...')
+          this.log('Successfully installed dependencies...')
           this.log('Building binaries...')
-          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform : getPlatform()}` ])
+          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform: getPlatform()}` ])
             .then(() => {
-              ls(tempDirPath)
-                .filter((fileName) => {
-                  if (platform === 'win') {
-                    return fileName === `${placeholderAppName}.exe`
-                  }
-
-                  return fileName === placeholderAppName
-                })
-                .forEach((fileName) => {
-                  if (platform === 'win') {
-                    const outPath =  `${execPath}/${binaryName}.exe`
-                    cp(`${tempDirPath}/${fileName}`, outPath)
-                    this.log('Making binary silent on launch...')
-                    createNodeAppWithoutTerminal({
-                      src: outPath,
-                      dst: outPath,
-                    })
-                    this.log('Creating ico for the app...')
-                    pageIcon(url)
-                      .then((icon) => {
-                        if (icon === undefined) throw 'icon fetch failed'
-                        if (icon.ext.toLowerCase() !== '.png') throw 'icon not png'
-                        probeSize(icon.source)
-                          .then((result:any) => {
-                            if (result.width !== result.height) throw 'icon dimensions not equal'
-                            this.log('Appropriate icon file fetched...')
-                            pngToIco(icon.source)
-                              .then((buf: any) => {
-                                writeFile(
-                                  `${tempDirPath}/icon.ico`,
-                                  buf,
-                                  (err) => {
-                                    if (err) {
-                                      throw 'writing ico file failed'
-                                    } else {
-                                      this.log('Ico file genrated...')
-                                    }
-                                  },
-                                )
-                              })
-                              .catch(() => this.error('Ico generation failed'))
-                          })
-                          .catch((err:any) => {
-                            throw err
-                          })
-                      })
-                      .catch((err:any) => this.error(err))
-
-                  } else {
-                    cp(`${tempDirPath}/${fileName}`, `${execPath}/${binaryName}`)
-                  }
-                })
+              const tempPkgBinaryName = platform === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
+              const outPkgBinaryName = platform === 'win' ? `${binaryName}.exe` : binaryName
+              const tempPkgBinaryPath = `${tempDirPath}/${tempPkgBinaryName}`
+              const outPkgBinaryPath = `${execPath}/${outPkgBinaryName}`
+              if (!test('-f', tempPkgBinaryPath)) {
+                throw 'Binary packaging failed'
+              }
               this.log('Generated binary successfully...')
-              if (install) {
-                if (platform === 'host' || platform === getPlatform()) {
-                  this.log('Installing shortcut...')
-                  if (isLinux()) {
-                    this.log('Looking for appropriate icon image...')
-                    pageIcon(url)
-                      .then((icon) => {
-                        if (icon === undefined) throw 'icon fetch failed'
-                        if (icon.ext.toLowerCase() !== '.png') throw 'icon not png'
-                        probeSize(icon.source)
-                          .then((result:any) => {
-                            if (result.width !== result.height) throw 'icon dimensions not equal'
-                            this.log('Appropriate icon file fetched...')
-                            const iconGenerationPromises:Array<Promise<string>> = iconSizes.map((size) => new Promise((resolve, reject) => {
-                              sharp(icon.data)
-                                .resize(size, size)
-                                .toBuffer()
-                                .then((resizedIconData:any) => {
-                                  if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size, true))) {
-                                    mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size, true))
-                                  }
-                                  if (!test('-d', getLinuxInstallationDesktopFilesIconFilesPath(size))) {
-                                    mkdir(getLinuxInstallationDesktopFilesIconFilesPath(size))
-                                  }
-                                  writeFile(
-                                    `${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`,
-                                    resizedIconData,
-                                    { mode: 0o666, flag: 'w' },
-                                    (err) => {
-                                      if (err) {
-                                        reject(err)
-                                      } else {
-                                        this.log(`Icon file of ${size}x${size} generated...`)
-                                        resolve(`${getLinuxInstallationDesktopFilesIconFilesPath(size)}/${binaryName}${icon.ext}`)
-                                      }
+              cp(tempPkgBinaryPath, outPkgBinaryPath)
+              if (platform === 'win') {
+                this.log('Making binary silent on launch...')
+                createNodeAppWithoutTerminal({
+                  src: outPkgBinaryPath,
+                  dst: outPkgBinaryPath,
+                })
+                this.log('Creating shortcut for the app...')
+                const tempIcoOutPath = `${tempDirPath}/icon.ico`
+                const icoOutPath = `${execPath}/icon.ico`
+                const shortcutOutPath = `${execPath}/${filenameSafe(name)}.lnk`
+                this.log('Looking for appropriate icon image...')
+                getProperPageIcon(url)
+                  .then((icon) => {
+                    this.log('Appropriate icon file fetched...')
+                    pngToIco(icon.source)
+                      .then((buf:any) => {
+                        writeFile(
+                          tempIcoOutPath,
+                          buf,
+                          (err) => {
+                            if (err) {
+                              throw 'writing ico file failed'
+                            } else {
+                              cp(tempIcoOutPath, icoOutPath)
+                              this.log('Ico file generated...')
+                              this.log('Creating shortcut file...')
+                              windowsShortcut.create(
+                                shortcutOutPath,
+                                {
+                                  target: outPkgBinaryPath,
+                                  icon: icoOutPath,
+                                },
+                                (err:string) => {
+                                  if (err === null) {
+                                    this.log('Shortcut file created...')
+                                    if (install) {
+                                      this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                                    } else {
+                                      this.log('Binary created successfully')
                                     }
-                                  )
-                                })
-                                .catch((err:any) => {
-                                  reject(err)
-                                })
-                            }))
-                            Promise.all(iconGenerationPromises)
-                              .then((iconPaths) => {
-                                cat(`${__dirname}/../installation/linux/app.desktop`)
-                                  .sed('@@NAME@@', name)
-                                  .sed('@@PATH@@', `${execPath}/${binaryName}`)
-                                  .sed('@@FILENAME@@', `${binaryName}`)
-                                  .to(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
-                                this.log('Desktop file generated...')
-                                this.log('Shortcut installation complete...')
-                                this.log('To remove installation of shortcut, remove following files:')
-                                this.log(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
-                                iconPaths.forEach((iconPath) => {
-                                  this.log(iconPath)
-                                })
-                              })
-                              .catch((err:any) => {
-                                throw err
-                              })
-                          })
-                          .catch((err:any) => {
-                            throw err
-                          })
+                                  } else {
+                                    this.error('Creating shortcut file failed')
+                                  }
+                                },
+                              )
+                            }
+                          },
+                        )
                       })
-                      .catch((err:any) => this.error(err))
-                  } else if (isWindows()) {
-                    this.log('Creating shortcut for windows isn\'t supported yet')
-                  } else if (isMac()) {
-                    this.log('Creating shortcut for mac os isn\'t supported yet')
-                  } else {
-                    this.log(`Creating shortcut for ${getPlatform()} isn\'t supported yet`)
-                  }
-                } else {
-                  this.error('Shortcut can only be installed if the platform is the same as the running platform')
-                }
+                      .catch((err:any) => {
+                        throw err
+                      })
+                  })
+                  .catch((err) => {
+                    this.log('Ico generation failed, falling back to using favicon.ico...')
+                    cp(tempIcoOutPath, icoOutPath)
+                    this.log('Ico file generated...')
+                    this.log('Creating shortcut file...')
+                    windowsShortcut.create(
+                      shortcutOutPath,
+                      {
+                        target: outPkgBinaryPath,
+                        icon: icoOutPath,
+                      },
+                      (err:string) => {
+                        if (err === null) {
+                          this.log('Shortcut file created...')
+                          if (install) {
+                            this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                          } else {
+                            this.log('Binary created successfully')
+                          }
+                        } else {
+                          this.error('Creating shortcut file failed')
+                        }
+                      },
+                    )
+                  })
+              } else if (install) {
+                this.installShortcut(binaryName, platform, { url, shortcutFilePath: null })
+              } else {
+                this.log('Binary created successfully')
               }
             })
             .catch(() => this.error('Binary packaging failed'))

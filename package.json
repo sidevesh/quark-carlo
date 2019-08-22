@@ -22,7 +22,8 @@
     "tmp": "0.0.33",
     "tslib": "^1.10.0",
     "windows-shortcuts": "^0.1.6",
-    "ts-node": "^7.0.1"
+    "ts-node": "^7.0.1",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@oclif/test": "^1.2.5",
@@ -38,8 +39,7 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
+    "tslint": "^5.18.0"
   },
   "engines": {
     "node": ">=8.0.0"

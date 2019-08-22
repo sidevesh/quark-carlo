@@ -24,7 +24,6 @@
     "windows-shortcuts": "^0.1.6"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1.22.2",
     "@oclif/tslint": "^3.1.1",
     "@types/node": "^10.14.15",
     "@types/node-fetch": "^2.5.0",
@@ -59,9 +58,8 @@
   "repository": "SiDevesh/quark-carlo",
   "scripts": {
     "posttest": "tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "oclif-dev readme && git add README.md"
+    "prepack": "rm -rf lib && tsc -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "lib/index.d.ts"
 }

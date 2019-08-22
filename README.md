@@ -9,7 +9,24 @@ Turn web apps into lightweight native desktop applications that use chrome as we
 [![License](https://img.shields.io/npm/l/quark-carlo.svg)](https://github.com/SiDevesh/quark-carlo/blob/master/package.json)
 
 <!-- toc -->
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 # Usage
 <!-- usage -->
+```sh-session
+$ npm install -g quark-carlo
+$ quark-carlo COMMAND
+running command...
+$ quark-carlo (-v|--version|version)
+quark-carlo/1.0.7 linux-x64 node-v10.16.2
+$ quark-carlo --help [COMMAND]
+USAGE
+  $ quark-carlo COMMAND
+...
+```
+<!-- usagestop -->
 # Commands
 <!-- commands -->
+
+<!-- commandsstop -->

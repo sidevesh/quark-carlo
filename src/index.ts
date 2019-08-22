@@ -8,6 +8,7 @@ import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
 import pngToIco = require('png-to-ico')
+import dedent = require('dedent-js')
 const probeSize = require('probe-image-size')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 const windowsShortcut = require('windows-shortcuts')
@@ -48,7 +49,7 @@ const getLinuxInstallationDesktopFilesIconFilesPath = (dimension:number, tillDim
   return `${homePath}/.local/share/icons/hicolor/${dimension}x${dimension}${tillDimension ? '' : '/apps'}`
 }
 
-const getWIndowsInstallationStartMenuShortcutFilesPath = () => {
+const getWindowsInstallationStartMenuShortcutFilesPath = () => {
   cd()
   const homePath = pwd().valueOf()
   cd(execPath)
@@ -163,11 +164,11 @@ class QuarkCarlo extends Command {
       } else if (isWindows()) {
         if (shortcutFilePath === null) throw 'no shortcut file path supplied'
         this.log('Copying shortcut to Start Menu...')
-        cp(shortcutFilePath, `getWIndowsInstallationStartMenuShortcutFilesPath()/${filenameSafe(name)}.lnk`)
+        cp(shortcutFilePath, `${getWindowsInstallationStartMenuShortcutFilesPath()}/${filenameSafe(name)}.lnk`)
         this.log('Shortcut added to Start Menu...')
         this.log('Shortcut installation complete...')
         this.log('To remove installation of shortcut, remove following files:')
-        this.log(`getWIndowsInstallationStartMenuShortcutFilesPath()/${filenameSafe(name)}.lnk`)
+        this.log(`${getWindowsInstallationStartMenuShortcutFilesPath()}/${filenameSafe(name)}.lnk`)
       } else if (isMac()) {
         this.log('Creating shortcut for mac os isn\'t supported yet')
       } else {
@@ -259,25 +260,34 @@ class QuarkCarlo extends Command {
                               cp(tempIcoOutPath, icoOutPath)
                               this.log('Ico file generated...')
                               this.log('Creating shortcut file...')
-                              windowsShortcut.create(
-                                shortcutOutPath,
-                                {
-                                  target: outPkgBinaryPath,
-                                  icon: icoOutPath,
-                                },
-                                (err:string) => {
-                                  if (err === null) {
-                                    this.log('Shortcut file created...')
-                                    if (install) {
-                                      this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                              if (isWindows()) {
+                                windowsShortcut.create(
+                                  shortcutOutPath,
+                                  {
+                                    target: outPkgBinaryPath,
+                                    icon: icoOutPath,
+                                  },
+                                  (err:string) => {
+                                    if (err === null) {
+                                      this.log('Shortcut file created...')
+                                      if (install) {
+                                        this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                                      } else {
+                                        this.log('Binary created successfully')
+                                      }
                                     } else {
-                                      this.log('Binary created successfully')
+                                      this.error('Creating shortcut file failed')
                                     }
-                                  } else {
-                                    this.error('Creating shortcut file failed')
-                                  }
-                                },
-                              )
+                                  },
+                                )
+                              } else {
+                                this.log(dedent(`
+                                  Shortcut can only be ${install ? 'installed' : 'created'} on Windows,
+                                  Please create a shortcut of the binary manually,
+                                  and assign icon.ico to the shortcut manually on Windows.
+                                `))
+                                this.log('Binary created successfully')
+                              }
                             }
                           },
                         )
@@ -301,25 +311,34 @@ class QuarkCarlo extends Command {
                               cp(tempIcoOutPath, icoOutPath)
                               this.log('Ico file generated...')
                               this.log('Creating shortcut file...')
-                              windowsShortcut.create(
-                                shortcutOutPath,
-                                {
-                                  target: outPkgBinaryPath,
-                                  icon: icoOutPath,
-                                },
-                                (err:string) => {
-                                  if (err === null) {
-                                    this.log('Shortcut file created...')
-                                    if (install) {
-                                      this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                              if (isWindows()) {
+                                windowsShortcut.create(
+                                  shortcutOutPath,
+                                  {
+                                    target: outPkgBinaryPath,
+                                    icon: icoOutPath,
+                                  },
+                                  (err:string) => {
+                                    if (err === null) {
+                                      this.log('Shortcut file created...')
+                                      if (install) {
+                                        this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                                      } else {
+                                        this.log('Binary created successfully')
+                                      }
                                     } else {
-                                      this.log('Binary created successfully')
+                                      this.error('Creating shortcut file failed')
                                     }
-                                  } else {
-                                    this.error('Creating shortcut file failed')
-                                  }
-                                },
-                              )
+                                  },
+                                )
+                              } else {
+                                this.log(dedent(`
+                                  Shortcut can only be ${install ? 'installed' : 'created'} on Windows,
+                                  Please create a shortcut of the binary manually,
+                                  and assign icon.ico to the shortcut manually on Windows.
+                                `))
+                                this.log('Binary created successfully')
+                              }
                             }
                           },
                         )

@@ -12,6 +12,7 @@
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
     "create-nodew-exe": "^1.0.5",
+    "dedent-js": "^1.0.1",
     "node-fetch": "^2.6.0",
     "page-icon": "^0.3.0",
     "pkg": "4.3.8",

@@ -7,10 +7,11 @@ import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs'
 import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
-import windowsShortcut = require('windows-shortcuts');
-import pngToIco = require('png-to-ico');
-const probeSize = require('probe-image-size');
-const createNodeAppWithoutTerminal = require('create-nodew-exe');
+import pngToIco = require('png-to-ico')
+const probeSize = require('probe-image-size')
+const createNodeAppWithoutTerminal = require('create-nodew-exe')
+const windowsShortcut = require('windows-shortcuts')
+
 const { exec: pkgExec } = require('pkg')
 
 const placeholderAppName = 'quark-carlo-placeholder'
@@ -265,7 +266,7 @@ class QuarkCarlo extends Command {
                                   target: outPkgBinaryPath,
                                   icon: icoOutPath,
                                 },
-                                (err) => {
+                                (err:string) => {
                                   if (err === null) {
                                     this.log('Shortcut file created...')
                                     if (install) {
@@ -307,7 +308,7 @@ class QuarkCarlo extends Command {
                                   target: outPkgBinaryPath,
                                   icon: icoOutPath,
                                 },
-                                (err) => {
+                                (err:string) => {
                                   if (err === null) {
                                     this.log('Shortcut file created...')
                                     if (install) {

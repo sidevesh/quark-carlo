@@ -3,14 +3,15 @@ import { platform as osPlatform } from 'os'
 import { open, writeFile, close } from 'fs'
 import { format } from 'util'
 import { dir as tempDir } from 'tmp'
-import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs' 
+import { cp, echo, exec, pwd, cd, ls, cat, mkdir, test } from 'shelljs'
+import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
-const windowsShortcut = require('windows-shortcuts')
-const pngToIco = require('png-to-ico')
+import windowsShortcut = require('windows-shortcuts');
+import pngToIco = require('png-to-ico');
+const probeSize = require('probe-image-size');
+const createNodeAppWithoutTerminal = require('create-nodew-exe');
 const { exec: pkgExec } = require('pkg')
-const probeSize = require('probe-image-size')
-const createNodeAppWithoutTerminal = require('create-nodew-exe')
 
 const placeholderAppName = 'quark-carlo-placeholder'
 const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
@@ -264,7 +265,7 @@ class QuarkCarlo extends Command {
                                   target: outPkgBinaryPath,
                                   icon: icoOutPath,
                                 },
-                                (err:string) => {
+                                (err) => {
                                   if (err === null) {
                                     this.log('Shortcut file created...')
                                     if (install) {
@@ -287,28 +288,45 @@ class QuarkCarlo extends Command {
                   })
                   .catch((err) => {
                     this.log('Ico generation failed, falling back to using favicon.ico...')
-                    cp(tempIcoOutPath, icoOutPath)
-                    this.log('Ico file generated...')
-                    this.log('Creating shortcut file...')
-                    windowsShortcut.create(
-                      shortcutOutPath,
-                      {
-                        target: outPkgBinaryPath,
-                        icon: icoOutPath,
-                      },
-                      (err:string) => {
-                        if (err === null) {
-                          this.log('Shortcut file created...')
-                          if (install) {
-                            this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
-                          } else {
-                            this.log('Binary created successfully')
-                          }
-                        } else {
-                          this.error('Creating shortcut file failed')
-                        }
-                      },
-                    )
+                    fetch(`${url}/favicon.ico`)
+                      .then(response => response.buffer())
+                      .then((buf) => {
+                        writeFile(
+                          tempIcoOutPath,
+                          buf,
+                          (err) => {
+                            if (err) {
+                              throw err
+                            } else {
+                              cp(tempIcoOutPath, icoOutPath)
+                              this.log('Ico file generated...')
+                              this.log('Creating shortcut file...')
+                              windowsShortcut.create(
+                                shortcutOutPath,
+                                {
+                                  target: outPkgBinaryPath,
+                                  icon: icoOutPath,
+                                },
+                                (err) => {
+                                  if (err === null) {
+                                    this.log('Shortcut file created...')
+                                    if (install) {
+                                      this.installShortcut(binaryName, platform, { shortcutFilePath: shortcutOutPath, url: null })
+                                    } else {
+                                      this.log('Binary created successfully')
+                                    }
+                                  } else {
+                                    this.error('Creating shortcut file failed')
+                                  }
+                                },
+                              )
+                            }
+                          },
+                        )
+                      })
+                      .catch(() => {
+                        this.error('Saving favicon.ico failed')
+                      })
                   })
               } else if (install) {
                 this.installShortcut(binaryName, platform, { url, shortcutFilePath: null })

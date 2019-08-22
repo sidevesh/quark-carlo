@@ -25,19 +25,13 @@
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
-    "@oclif/test": "^1.2.5",
     "@oclif/tslint": "^3.1.1",
-    "@types/chai": "^4.2.0",
-    "@types/mocha": "^5.2.7",
     "@types/node": "^10.14.15",
     "@types/node-fetch": "^2.5.0",
     "@types/page-icon": "^0.3.2",
     "@types/sharp": "^0.21.3",
     "@types/shelljs": "^0.8.5",
     "@types/tmp": "0.0.33",
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.3.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
@@ -58,7 +52,7 @@
   "scripts": {
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"

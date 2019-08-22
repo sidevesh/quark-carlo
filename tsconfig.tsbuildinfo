@@ -1443,6 +1443,31 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/alphabet.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/alphabet.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/metadata.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/parse.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/args.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/metadata.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/help.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/args.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
@@ -1451,40 +1476,44 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/command.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/command.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/main.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/src/index.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/main.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/hooks.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/manifest.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/plugin.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/manifest.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/config.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/hooks.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/plugin.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1499,63 +1528,30 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/hooks.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/config.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/hooks.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/plugin.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/plugin.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/manifest.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/manifest.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/command.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/parse.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/args.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/metadata.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/alphabet.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/alphabet.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/help.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/metadata.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/command.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/pjson.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/main.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/config/lib/topic.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/command.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/flags.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/main.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1568,6 +1564,209 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/assert.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/async_hooks.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/buffer.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/events/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/child_process.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/cluster.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/child_process.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/console.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/constants.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/crypto.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dgram.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/domain.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http2.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/https.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/inspector.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/module.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/os.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/path.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/perf_hooks.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/async_hooks.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/process.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/punycode.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/querystring.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/readline.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/repl.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/readline.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/vm.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/string_decoder.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/timers.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/crypto.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/trace_events.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tty.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/querystring.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/v8.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/vm.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/worker_threads.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/zlib.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1614,40 +1813,27 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/zlib.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/globals.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/base.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/globals.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/nock/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/minimatch/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/png-to-ico/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/sharp/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/page-icon/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/externals.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/glob/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/minimatch/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1659,380 +1845,46 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/glob/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/minimatch/index.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/externals.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/externals.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/async_hooks.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/page-icon/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/perf_hooks.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/async_hooks.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/buffer.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/events/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/child_process.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/sharp/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/cluster.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/child_process.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/png-to-ico/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/console.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/src/index.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/parser/lib/flags.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@oclif/command/lib/index.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/chai/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/constants.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/crypto.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/crypto.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/https.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http2.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tls.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dgram.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/dns.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/tty.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/net.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/domain.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/worker_threads.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/zlib.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/readline.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/repl.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/readline.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/vm.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/stream.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/inspector.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/events.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/module.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/os.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/path.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/process.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/punycode.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/querystring.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/querystring.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/string_decoder.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/timers.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/trace_events.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/sinon/ts3.1/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/mocha/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
@@ -2061,8 +1913,168 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/util.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/common.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/array.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/collection.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/lodash/ts3.1/common/date.d.ts",
@@ -2077,31 +2089,19 @@
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/chai/index.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/mocha/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node-fetch/externals.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/nock/index.d.ts": [
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/fs.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/http.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/url.d.ts",
+        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/index.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/minimatch/index.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/globals.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/vm.d.ts": [
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
-        "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/v8.d.ts": [
+      "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/sinon/ts3.1/index.d.ts": [
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/util.d.ts",
         "/mnt/c/Users/swapn/Documents/Projects/Quark/quark-carlo/node_modules/@types/node/ts3.2/util.d.ts"
       ]

@@ -24,6 +24,7 @@
     "windows-shortcuts": "^0.1.6"
   },
   "devDependencies": {
+    "@oclif/dev-cli": "^1.22.2",
     "@oclif/test": "^1.2.5",
     "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4.2.0",
@@ -37,8 +38,8 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
-    "tslint": "^5.18.0",
     "ts-node": "^7.0.1",
+    "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
   "engines": {
@@ -55,9 +56,11 @@
   },
   "repository": "SiDevesh/quark-carlo",
   "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc -b",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
 }

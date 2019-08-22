@@ -7,3 +7,5 @@
 /lib/tsconfig.tsbuildinfo
 /src
 .editorconfig
+tsconfig.json
+tslint.json

@@ -16,6 +16,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: echo $NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npm publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}

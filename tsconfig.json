@@ -8,7 +8,7 @@
     "strict": true,
     "target": "es2017",
     "composite": true,
-    "tsBuildInfoFile": "lib"
+    "tsBuildInfoFile": "lib/tsconfig.tsbuildinfo"
   },
   "include": [
     "src/**/*"

@@ -19,7 +19,7 @@ $ npm install -g quark-carlo
 $ quark-carlo COMMAND
 running command...
 $ quark-carlo (-v|--version|version)
-quark-carlo/1.0.8 linux-x64 node-v10.16.2
+quark-carlo/1.0.9 linux-x64 node-v10.16.2
 $ quark-carlo --help [COMMAND]
 USAGE
   $ quark-carlo COMMAND

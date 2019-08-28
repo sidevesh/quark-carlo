@@ -10,6 +10,6 @@
   "author": "SiDevesh",
   "license": "MIT",
   "dependencies": {
-    "carlo": "^0.9.18"
+    "carlo": "git+https://git@github.com/SiDevesh/carlo.git"
   }
 }

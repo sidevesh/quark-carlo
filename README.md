@@ -18,11 +18,13 @@ USAGE
   $ quark-carlo
 
 OPTIONS
-  -d, --dimensions=dimensions  [default: 1280x720] Dimensions of application window as [width]x[height], for example 1280x720
-  -h, --help                   show CLI help
-  -i, --install                Install a shortcut so that the app shows up in the application menu
-  -n, --name=name              (required) name of application
-  -p, --platform=platform      [default: host] Platform to build the binary for, defaults to the running platform, possible options are linux, macos, win
-  -u, --url=url                (required) url to load in application
-  -v, --version                show CLI version
+  -D, --debug                                                    Create debug app to identify required additional internal hostnames, on encountering navigation to an external hostname the app will show an alert with the hostname value to pass in additionalInternalHostnames
+  -a, --additionalInternalHostnames=additionalInternalHostnames  Comma separated list of additional hostnames that are to be opened within the app, for example oauth login page hostnames (for Google: accounts.google.com)
+  -d, --dimensions=dimensions                                    [default: 1280x720] Dimensions of application window as [width]x[height], for example 1280x720
+  -h, --help                                                     show CLI help
+  -i, --install                                                  Install a shortcut so that the app shows up in the application menu
+  -n, --name=name                                                (required) name of application
+  -p, --platform=platform                                        [default: host] Platform to build the binary for, defaults to the running platform, possible options are linux, macos, win
+  -u, --url=url                                                  (required) url to load in application
+  -v, --version                                                  show CLI version
 ```

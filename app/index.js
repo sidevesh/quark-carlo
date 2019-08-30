@@ -9,6 +9,7 @@ const config = require('./config.json');
     title: config.name,
     url: config.url,
     icon: path.join(path.dirname(process.argv[0]), config.iconPath),
+    userDataDir: path.join(path.dirname(process.argv[0]), '.profile'),
     bgcolor: '#eeeeee',
   });
   app.on('exit', () => process.exit());

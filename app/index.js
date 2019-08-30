@@ -31,6 +31,6 @@ const config = require('./config.json');
       req.continue();
     }
   });
-  app.serveOrigin(config.url);
-  await app.load('/');
+  app.serveOrigin(new URL(config.url).origin);
+  await app.load(new URL(config.url).pathname);
 })();

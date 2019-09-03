@@ -59,7 +59,7 @@
   "repository": "SiDevesh/quark-carlo",
   "scripts": {
     "posttest": "tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc -b",
+    "prepack": "tsc -b",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "types": "lib/index.d.ts"

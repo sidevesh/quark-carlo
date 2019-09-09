@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import { platform as osPlatform } from 'os'
+import { platform as osPlatform, type as platformType, release as platformRelease } from 'os'
 import { writeFile } from 'fs'
 import { dir as tempDir } from 'tmp'
 import { cp, echo, exec, pwd, cd, cat, mkdir, test } from 'shelljs'
@@ -9,6 +9,7 @@ import sharp = require('sharp')
 import pngToIco = require('png-to-ico')
 import icoToPng = require('ico-to-png')
 import dedent = require('dedent-js')
+import semver = require('semver')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 const windowsShortcut = require('windows-shortcuts')
 const { exec: pkgExec } = require('pkg')
@@ -16,6 +17,18 @@ const { exec: pkgExec } = require('pkg')
 const placeholderAppName = 'quark-carlo-placeholder'
 const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
+const garanteeSemverFormat = (version:string) => {
+  if (version.split('.').length === 2) {
+    version += '.0';
+  }
+  return version;
+}
+const isLessThanWin8 =() => {
+  return (
+    platformType() === 'Windows_NT' &&
+    semver.satisfies(garanteeSemverFormat(platformRelease()), '<6.2.9200')
+  );
+};
 const isLinux = () => osPlatform() === 'linux'
 const isWindows = () => osPlatform() === 'win32'
 const isMac = () => osPlatform() === 'darwin'
@@ -31,7 +44,7 @@ const getPlatform = () => {
       return osPlatform()
   }
 }
-const getNormalizedPlatform = (platform:string) => platform !== 'host' ? platform : getPlatform();
+const getNormalizedPlatform = (platform:string) => platform !== 'host' ? platform : getPlatform()
 
 const execPath = pwd().valueOf()
 
@@ -58,7 +71,6 @@ const getWindowsInstallationStartMenuShortcutFilesPath = () => {
 
 const filenameSafe = (str:string) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase()
 const filenameSafeDisplayName = (str:string) => str.replace(/[^a-z0-9 ]/gi, '_')
-
 
 const getProperPageIcon = (url:string):Promise<PageIcon.Icon> => new Promise((resolve, reject) => {
   pageIcon(url)
@@ -233,11 +245,15 @@ class QuarkCarlo extends Command {
       binaryPath = null,
       shortcutFilePath = null,
       shortcutName = null,
+      icoOutPath = null,
+      outPkgDirectoryPath = null,
     }:{
       url:string|null,
       binaryPath:string|null,
       shortcutFilePath:string|null,
       shortcutName:string|null,
+      icoOutPath:string|null,
+      outPkgDirectoryPath:string|null,
     }
   ) {
     if (platform === 'host' || platform === getPlatform()) {
@@ -295,13 +311,36 @@ class QuarkCarlo extends Command {
       } else if (isWindows()) {
         if (shortcutFilePath === null) throw 'no shortcut file path supplied'
         if (shortcutName === null) throw 'no shortcut name supplied'
+        if (outPkgDirectoryPath === null) throw 'no out package directory path supplied'
+        if (binaryPath === null) throw 'no binary path supplied'
+        if (icoOutPath === null) throw 'no ico out path supplied'
         const windowsInstallationStartMenuShortcutFilesPath = `${getWindowsInstallationStartMenuShortcutFilesPath()}/${shortcutName}.lnk`
-        this.log('Copying shortcut to Start Menu...')
-        cp(shortcutFilePath, windowsInstallationStartMenuShortcutFilesPath)
-        this.log('Shortcut added to Start Menu...')
-        this.log('Shortcut installation complete...')
-        this.log('To remove installation of shortcut, remove following files:')
-        this.log(windowsInstallationStartMenuShortcutFilesPath)
+        this.log('Installing shortcut to Start Menu...')
+        if (isLessThanWin8()) {
+          cp(shortcutFilePath, windowsInstallationStartMenuShortcutFilesPath)
+        } else {
+          exec(`${outPkgDirectoryPath}/notifier/SnoreToast.exe -install "${windowsInstallationStartMenuShortcutFilesPath}" "${binaryPath}" "${binaryName}"`, { silent: true }, (code) => {
+            if (code === 0) {
+              windowsShortcut.edit(
+                windowsInstallationStartMenuShortcutFilesPath,
+                {
+                  icon: icoOutPath,
+                },
+                (err:string) => {
+                  if (err === null) {
+                    this.log('Shortcut installation complete...')
+                    this.log('To remove installation of shortcut, remove following files:')
+                    this.log(windowsInstallationStartMenuShortcutFilesPath)
+                  } else {
+                    this.error('Shortcut installation failed')
+                  }
+                },
+              );
+            } else {
+              throw 'shortcut install failed'
+            }
+          })
+        }
       } else if (isMac()) {
         this.log('Creating shortcut for mac os isn\'t supported yet')
       } else {
@@ -438,8 +477,10 @@ class QuarkCarlo extends Command {
                                 {
                                   shortcutName: binaryName,
                                   shortcutFilePath: shortcutOutPath,
-                                  binaryPath: null,
+                                  icoOutPath: icoOutPath,
+                                  binaryPath: outPkgBinaryPath,
                                   url: null,
+                                  outPkgDirectoryPath: outPkgDirectoryPath,                                  
                                 },
                               )
                             } else {
@@ -472,7 +513,7 @@ class QuarkCarlo extends Command {
                       dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
                     })
                     if (install) {
-                      this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null })
+                      this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
                       this.log('Binary created successfully')
                     }

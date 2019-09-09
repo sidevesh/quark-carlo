@@ -51,7 +51,7 @@ const polyRideNotification = require('./notification_polyride');
       message: opts.message,
       sound: opts.sound,
       icon: path.join(path.dirname(process.argv[0]), config.iconPath),
-      appID: config.appId, 
+      appID: config.appId,
       wait: true,
     });
     app.evaluate(`window.Notification.notifyNotificationInstances['${opts.uniqueId}'].dispatchEvent(new Event('show'))`);

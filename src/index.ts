@@ -409,6 +409,11 @@ class QuarkCarlo extends Command {
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    // Making SnoreToast binary silent too, although this library is only meant for node exe
+                    createNodeAppWithoutTerminal({
+                      src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                      dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                    })
                     if (isWindows()) {
                       const shortcutOutPath = `${execPath}/${filenameSafe(name)}.lnk`
                       this.log('Creating shortcut for the app...')
@@ -457,6 +462,11 @@ class QuarkCarlo extends Command {
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    // Making SnoreToast binary silent too, although this library is only meant for node exe
+                    createNodeAppWithoutTerminal({
+                      src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                      dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                    })
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null })
                     } else {

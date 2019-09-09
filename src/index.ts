@@ -355,6 +355,7 @@ class QuarkCarlo extends Command {
       height,
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
+      appId: binaryName,
       debug,
     })
     tempDir({ unsafeCleanup: true }, (err, tempDirPath) => {
@@ -369,7 +370,7 @@ class QuarkCarlo extends Command {
         if (code === 0) {
           this.log('Successfully installed dependencies...')
           this.log('Building binaries...')
-          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform: getPlatform()}` ])
+          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform: getPlatform()}`, '--no-bytecode' ])
             .then(() => {
               const tempPkgBinaryName = platform === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
               const outPkgBinaryName = platform === 'win' ? `${binaryName}.exe` : binaryName
@@ -397,10 +398,17 @@ class QuarkCarlo extends Command {
                 .then(() => {
                   if (platform === 'win') {
                     this.log('Making binary silent on launch...')
-                     createNodeAppWithoutTerminal({
-                       src: outPkgBinaryPath,
-                       dst: outPkgBinaryPath,
-                     })
+                    createNodeAppWithoutTerminal({
+                      src: outPkgBinaryPath,
+                      dst: outPkgBinaryPath,
+                    })
+                    mkdir(`${outPkgDirectoryPath}/notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
                     if (isWindows()) {
                       const shortcutOutPath = `${execPath}/${filenameSafe(name)}.lnk`
                       this.log('Creating shortcut for the app...')
@@ -442,6 +450,13 @@ class QuarkCarlo extends Command {
                       this.log('Binary created successfully')
                     }
                   } else {
+                    mkdir(`${outPkgDirectoryPath}/notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null })
                     } else {

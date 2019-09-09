@@ -1,6 +1,8 @@
 const carlo = require('carlo');
+const notifier = require('node-notifier');
 const path = require('path');
 const config = require('./config.json');
+const polyRideNotification = require('./notification_polyride');
 
 (async () => {
   const app = await carlo.launch({
@@ -33,5 +35,27 @@ const config = require('./config.json');
     }
   });
   app.serveOrigin(new URL(config.url).origin);
+
+  notifier.on('click', () => {
+    app.mainWindow().bringToFront();
+    app.evaluate(`window.Notification.getLastNotification().dispatchEvent(new Event('click'))`);
+  });
+  notifier.on('timeout', () => {
+    app.evaluate(`window.Notification.getLastNotification().dispatchEvent(new Event('close'))`);
+  });
+
+  await app.exposeFunction('notify', (serializedOpts) => {
+    const opts = JSON.parse(serializedOpts);
+    notifier.notify({
+      title: opts.title,
+      message: opts.message,
+      sound: opts.sound,
+      icon: path.join(path.dirname(process.argv[0]), config.iconPath),
+      appID: config.appId, 
+      wait: true,
+    });
+    app.evaluate(`window.Notification.notifyNotificationInstances['${opts.uniqueId}'].dispatchEvent(new Event('show'))`);
+  });
   await app.load(new URL(config.url).pathname);
+  await app.evaluate(polyRideNotification);
 })();

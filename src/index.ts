@@ -31,6 +31,7 @@ const getPlatform = () => {
       return osPlatform()
   }
 }
+const getNormalizedPlatform = (platform:string) => platform !== 'host' ? platform : getPlatform();
 
 const execPath = pwd().valueOf()
 
@@ -56,6 +57,8 @@ const getWindowsInstallationStartMenuShortcutFilesPath = () => {
 }
 
 const filenameSafe = (str:string) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+const filenameSafeDisplayName = (str:string) => str.replace(/[^a-z0-9 ]/gi, '_')
+
 
 const getProperPageIcon = (url:string):Promise<PageIcon.Icon> => new Promise((resolve, reject) => {
   pageIcon(url)
@@ -274,7 +277,7 @@ class QuarkCarlo extends Command {
         Promise.all(iconGenerationPromises)
           .then((iconPaths) => {
             cat(`${__dirname}/../installation/linux/app.desktop`)
-              .sed('@@NAME@@', name)
+              .sed('@@NAME@@', filenameSafeDisplayName(name))
               .sed('@@PATH@@', binaryPath)
               .sed('@@FILENAME@@', `${binaryName}`)
               .to(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
@@ -313,9 +316,6 @@ class QuarkCarlo extends Command {
     const { flags } = this.parse(QuarkCarlo)
     const { name, url, dimensions, install, additionalInternalHostnames, debug } = flags
     let { platform } = flags
-    const directoryOrShortcutName = filenameSafe(name)
-    const binaryName = `${directoryOrShortcutName}-quark`
-    const outPkgDirectoryPath = `${execPath}/${directoryOrShortcutName}`
 
     let width = 1280
     let height = 720
@@ -348,6 +348,10 @@ class QuarkCarlo extends Command {
     } catch (err) {
       this.warn('Invalid additional internal hostnames supplied, make sure you pass a comma separated list of hostnames')
     }
+
+    const binaryName = getNormalizedPlatform(platform) === 'win' ? filenameSafeDisplayName(name) : filenameSafe(name)
+    const outPkgDirectoryPath = `${execPath}/${filenameSafe(name)}`
+
     const config = JSON.stringify({
       name,
       url,
@@ -355,7 +359,7 @@ class QuarkCarlo extends Command {
       height,
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
-      appId: binaryName,
+      appNameForWindowsToasts: binaryName,
       debug,
     })
     tempDir({ unsafeCleanup: true }, (err, tempDirPath) => {
@@ -370,10 +374,10 @@ class QuarkCarlo extends Command {
         if (code === 0) {
           this.log('Successfully installed dependencies...')
           this.log('Building binaries...')
-          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform: getPlatform()}`, '--no-bytecode' ])
+          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${getNormalizedPlatform(platform)}`, '--no-bytecode' ])
             .then(() => {
-              const tempPkgBinaryName = platform === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
-              const outPkgBinaryName = platform === 'win' ? `${binaryName}.exe` : binaryName
+              const tempPkgBinaryName = getNormalizedPlatform(platform) === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
+              const outPkgBinaryName = getNormalizedPlatform(platform) === 'win' ? `${binaryName}.exe` : binaryName
               const tempPkgBinaryPath = `${tempDirPath}/${tempPkgBinaryName}`
               const outPkgBinaryPath = `${outPkgDirectoryPath}/${outPkgBinaryName}`
               mkdir(outPkgDirectoryPath)
@@ -387,7 +391,7 @@ class QuarkCarlo extends Command {
               getIconFiles(
                 url,
                 (msg:any) => this.log(msg),
-                platform === 'win',
+                getNormalizedPlatform(platform) === 'win',
                 {
                   tempIcoOutPath: `${tempDirPath}/icon.ico`,
                   icoOutPath,
@@ -396,7 +400,7 @@ class QuarkCarlo extends Command {
                 },
               )
                 .then(() => {
-                  if (platform === 'win') {
+                  if (getNormalizedPlatform(platform) === 'win') {
                     this.log('Making binary silent on launch...')
                     createNodeAppWithoutTerminal({
                       src: outPkgBinaryPath,
@@ -415,7 +419,7 @@ class QuarkCarlo extends Command {
                       dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
                     })
                     if (isWindows()) {
-                      const shortcutOutPath = `${execPath}/${filenameSafe(name)}.lnk`
+                      const shortcutOutPath = `${execPath}/${binaryName}.lnk`
                       this.log('Creating shortcut for the app...')
                       windowsShortcut.create(
                         shortcutOutPath,
@@ -432,7 +436,7 @@ class QuarkCarlo extends Command {
                                 platform,
                                 pngOutPath,
                                 {
-                                  shortcutName: directoryOrShortcutName,
+                                  shortcutName: binaryName,
                                   shortcutFilePath: shortcutOutPath,
                                   binaryPath: null,
                                   url: null,

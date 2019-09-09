@@ -10,6 +10,7 @@
   "author": "SiDevesh",
   "license": "MIT",
   "dependencies": {
-    "carlo": "git+https://git@github.com/SiDevesh/carlo.git"
+    "carlo": "git+https://git@github.com/SiDevesh/carlo.git",
+    "node-notifier": "5.4.3"
   }
 }

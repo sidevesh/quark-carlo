@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import { platform as osPlatform } from 'os'
+import { platform as osPlatform, type as platformType, release as platformRelease } from 'os'
 import { writeFile } from 'fs'
 import { dir as tempDir } from 'tmp'
 import { cp, echo, exec, pwd, cd, cat, mkdir, test } from 'shelljs'
@@ -9,6 +9,7 @@ import sharp = require('sharp')
 import pngToIco = require('png-to-ico')
 import icoToPng = require('ico-to-png')
 import dedent = require('dedent-js')
+import semver = require('semver')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 const windowsShortcut = require('windows-shortcuts')
 const { exec: pkgExec } = require('pkg')
@@ -16,6 +17,18 @@ const { exec: pkgExec } = require('pkg')
 const placeholderAppName = 'quark-carlo-placeholder'
 const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
+const garanteeSemverFormat = (version:string) => {
+  if (version.split('.').length === 2) {
+    version += '.0';
+  }
+  return version;
+}
+const isLessThanWin8 =() => {
+  return (
+    platformType() === 'Windows_NT' &&
+    semver.satisfies(garanteeSemverFormat(platformRelease()), '<6.2.9200')
+  );
+};
 const isLinux = () => osPlatform() === 'linux'
 const isWindows = () => osPlatform() === 'win32'
 const isMac = () => osPlatform() === 'darwin'
@@ -31,6 +44,7 @@ const getPlatform = () => {
       return osPlatform()
   }
 }
+const getNormalizedPlatform = (platform:string) => platform !== 'host' ? platform : getPlatform()
 
 const execPath = pwd().valueOf()
 
@@ -56,6 +70,7 @@ const getWindowsInstallationStartMenuShortcutFilesPath = () => {
 }
 
 const filenameSafe = (str:string) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase()
+const filenameSafeDisplayName = (str:string) => str.replace(/[^a-z0-9 ]/gi, '_')
 
 const getProperPageIcon = (url:string):Promise<PageIcon.Icon> => new Promise((resolve, reject) => {
   pageIcon(url)
@@ -230,11 +245,15 @@ class QuarkCarlo extends Command {
       binaryPath = null,
       shortcutFilePath = null,
       shortcutName = null,
+      icoOutPath = null,
+      outPkgDirectoryPath = null,
     }:{
       url:string|null,
       binaryPath:string|null,
       shortcutFilePath:string|null,
       shortcutName:string|null,
+      icoOutPath:string|null,
+      outPkgDirectoryPath:string|null,
     }
   ) {
     if (platform === 'host' || platform === getPlatform()) {
@@ -274,7 +293,7 @@ class QuarkCarlo extends Command {
         Promise.all(iconGenerationPromises)
           .then((iconPaths) => {
             cat(`${__dirname}/../installation/linux/app.desktop`)
-              .sed('@@NAME@@', name)
+              .sed('@@NAME@@', filenameSafeDisplayName(name))
               .sed('@@PATH@@', binaryPath)
               .sed('@@FILENAME@@', `${binaryName}`)
               .to(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)
@@ -292,13 +311,36 @@ class QuarkCarlo extends Command {
       } else if (isWindows()) {
         if (shortcutFilePath === null) throw 'no shortcut file path supplied'
         if (shortcutName === null) throw 'no shortcut name supplied'
+        if (outPkgDirectoryPath === null) throw 'no out package directory path supplied'
+        if (binaryPath === null) throw 'no binary path supplied'
+        if (icoOutPath === null) throw 'no ico out path supplied'
         const windowsInstallationStartMenuShortcutFilesPath = `${getWindowsInstallationStartMenuShortcutFilesPath()}/${shortcutName}.lnk`
-        this.log('Copying shortcut to Start Menu...')
-        cp(shortcutFilePath, windowsInstallationStartMenuShortcutFilesPath)
-        this.log('Shortcut added to Start Menu...')
-        this.log('Shortcut installation complete...')
-        this.log('To remove installation of shortcut, remove following files:')
-        this.log(windowsInstallationStartMenuShortcutFilesPath)
+        this.log('Installing shortcut to Start Menu...')
+        if (isLessThanWin8()) {
+          cp(shortcutFilePath, windowsInstallationStartMenuShortcutFilesPath)
+        } else {
+          exec(`${outPkgDirectoryPath}/notifier/SnoreToast.exe -install "${windowsInstallationStartMenuShortcutFilesPath}" "${binaryPath}" "${binaryName}"`, { silent: true }, (code) => {
+            if (code === 0) {
+              windowsShortcut.edit(
+                windowsInstallationStartMenuShortcutFilesPath,
+                {
+                  icon: icoOutPath,
+                },
+                (err:string) => {
+                  if (err === null) {
+                    this.log('Shortcut installation complete...')
+                    this.log('To remove installation of shortcut, remove following files:')
+                    this.log(windowsInstallationStartMenuShortcutFilesPath)
+                  } else {
+                    this.error('Shortcut installation failed')
+                  }
+                },
+              );
+            } else {
+              throw 'shortcut install failed'
+            }
+          })
+        }
       } else if (isMac()) {
         this.log('Creating shortcut for mac os isn\'t supported yet')
       } else {
@@ -313,9 +355,6 @@ class QuarkCarlo extends Command {
     const { flags } = this.parse(QuarkCarlo)
     const { name, url, dimensions, install, additionalInternalHostnames, debug } = flags
     let { platform } = flags
-    const directoryOrShortcutName = filenameSafe(name)
-    const binaryName = `${directoryOrShortcutName}-quark`
-    const outPkgDirectoryPath = `${execPath}/${directoryOrShortcutName}`
 
     let width = 1280
     let height = 720
@@ -348,6 +387,10 @@ class QuarkCarlo extends Command {
     } catch (err) {
       this.warn('Invalid additional internal hostnames supplied, make sure you pass a comma separated list of hostnames')
     }
+
+    const binaryName = getNormalizedPlatform(platform) === 'win' ? filenameSafeDisplayName(name) : filenameSafe(name)
+    const outPkgDirectoryPath = `${execPath}/${filenameSafe(name)}`
+
     const config = JSON.stringify({
       name,
       url,
@@ -355,6 +398,7 @@ class QuarkCarlo extends Command {
       height,
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
+      appNameForWindowsToasts: binaryName,
       debug,
     })
     tempDir({ unsafeCleanup: true }, (err, tempDirPath) => {
@@ -369,10 +413,10 @@ class QuarkCarlo extends Command {
         if (code === 0) {
           this.log('Successfully installed dependencies...')
           this.log('Building binaries...')
-          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${platform !== 'host' ? platform: getPlatform()}` ])
+          pkgExec([ tempDirPath, '--out-path', tempDirPath, '--targets', `node10-${getNormalizedPlatform(platform)}`, '--no-bytecode' ])
             .then(() => {
-              const tempPkgBinaryName = platform === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
-              const outPkgBinaryName = platform === 'win' ? `${binaryName}.exe` : binaryName
+              const tempPkgBinaryName = getNormalizedPlatform(platform) === 'win' ? `${placeholderAppName}.exe` : placeholderAppName
+              const outPkgBinaryName = getNormalizedPlatform(platform) === 'win' ? `${binaryName}.exe` : binaryName
               const tempPkgBinaryPath = `${tempDirPath}/${tempPkgBinaryName}`
               const outPkgBinaryPath = `${outPkgDirectoryPath}/${outPkgBinaryName}`
               mkdir(outPkgDirectoryPath)
@@ -386,7 +430,7 @@ class QuarkCarlo extends Command {
               getIconFiles(
                 url,
                 (msg:any) => this.log(msg),
-                platform === 'win',
+                getNormalizedPlatform(platform) === 'win',
                 {
                   tempIcoOutPath: `${tempDirPath}/icon.ico`,
                   icoOutPath,
@@ -395,14 +439,26 @@ class QuarkCarlo extends Command {
                 },
               )
                 .then(() => {
-                  if (platform === 'win') {
+                  if (getNormalizedPlatform(platform) === 'win') {
                     this.log('Making binary silent on launch...')
-                     createNodeAppWithoutTerminal({
-                       src: outPkgBinaryPath,
-                       dst: outPkgBinaryPath,
-                     })
+                    createNodeAppWithoutTerminal({
+                      src: outPkgBinaryPath,
+                      dst: outPkgBinaryPath,
+                    })
+                    mkdir(`${outPkgDirectoryPath}/notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    // Making SnoreToast binary silent too, although this library is only meant for node exe
+                    createNodeAppWithoutTerminal({
+                      src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                      dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                    })
                     if (isWindows()) {
-                      const shortcutOutPath = `${execPath}/${filenameSafe(name)}.lnk`
+                      const shortcutOutPath = `${execPath}/${binaryName}.lnk`
                       this.log('Creating shortcut for the app...')
                       windowsShortcut.create(
                         shortcutOutPath,
@@ -419,10 +475,12 @@ class QuarkCarlo extends Command {
                                 platform,
                                 pngOutPath,
                                 {
-                                  shortcutName: directoryOrShortcutName,
+                                  shortcutName: binaryName,
                                   shortcutFilePath: shortcutOutPath,
-                                  binaryPath: null,
+                                  icoOutPath: icoOutPath,
+                                  binaryPath: outPkgBinaryPath,
                                   url: null,
+                                  outPkgDirectoryPath: outPkgDirectoryPath,                                  
                                 },
                               )
                             } else {
@@ -442,8 +500,20 @@ class QuarkCarlo extends Command {
                       this.log('Binary created successfully')
                     }
                   } else {
+                    mkdir(`${outPkgDirectoryPath}/notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    // Making SnoreToast binary silent too, although this library is only meant for node exe
+                    createNodeAppWithoutTerminal({
+                      src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                      dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
+                    })
                     if (install) {
-                      this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null })
+                      this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
                       this.log('Binary created successfully')
                     }

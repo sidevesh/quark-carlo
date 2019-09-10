@@ -262,6 +262,7 @@ class QuarkCarlo extends Command {
       if (isLinux()) {
         if (url === null) throw 'no url supplied'
         if (binaryPath === null) throw 'no binary path supplied'
+        if (launcherName === null) throw 'no launcher name supplied'
         const iconGenerationPromises:Array<Promise<string>> = iconSizes.map((size) => new Promise((resolve, reject) => {
           sharp(pngOutPath)
             .resize(size, size)
@@ -294,7 +295,7 @@ class QuarkCarlo extends Command {
         Promise.all(iconGenerationPromises)
           .then((iconPaths) => {
             cat(`${__dirname}/../installation/linux/app.desktop`)
-              .sed('@@NAME@@', filenameSafeDisplayName(name))
+              .sed('@@NAME@@', launcherName)
               .sed('@@PATH@@', binaryPath)
               .sed('@@FILENAME@@', `${binaryName}`)
               .to(`${getLinuxInstallationDesktopFilesPath()}/${binaryName}.desktop`)

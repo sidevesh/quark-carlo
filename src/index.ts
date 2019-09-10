@@ -19,16 +19,16 @@ const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
 const garanteeSemverFormat = (version:string) => {
   if (version.split('.').length === 2) {
-    version += '.0';
+    version += '.0'
   }
-  return version;
+  return version
 }
 const isLessThanWin8 =() => {
   return (
     platformType() === 'Windows_NT' &&
     semver.satisfies(garanteeSemverFormat(platformRelease()), '<6.2.9200')
-  );
-};
+  )
+}
 const isLinux = () => osPlatform() === 'linux'
 const isWindows = () => osPlatform() === 'win32'
 const isMac = () => osPlatform() === 'darwin'
@@ -203,7 +203,6 @@ const getIconFiles = (
 
 class QuarkCarlo extends Command {
   static description = 'Create native app from any web app, optionally install a shortcut so that the app shows up in the application menu'
-
   static flags = {
     version: flags.version({ char: 'v' }),
     help: flags.help({ char: 'h' }),
@@ -246,6 +245,7 @@ class QuarkCarlo extends Command {
       shortcutFilePath = null,
       shortcutName = null,
       icoOutPath = null,
+      launcherName = null,
       outPkgDirectoryPath = null,
     }:{
       url:string|null,
@@ -253,6 +253,7 @@ class QuarkCarlo extends Command {
       shortcutFilePath:string|null,
       shortcutName:string|null,
       icoOutPath:string|null,
+      launcherName:string|null,
       outPkgDirectoryPath:string|null,
     }
   ) {
@@ -335,7 +336,7 @@ class QuarkCarlo extends Command {
                     this.error('Shortcut installation failed')
                   }
                 },
-              );
+              )
             } else {
               throw 'shortcut install failed'
             }
@@ -475,11 +476,13 @@ class QuarkCarlo extends Command {
                                 platform,
                                 pngOutPath,
                                 {
+                                  
                                   shortcutName: binaryName,
                                   shortcutFilePath: shortcutOutPath,
                                   icoOutPath: icoOutPath,
                                   binaryPath: outPkgBinaryPath,
                                   url: null,
+                                  launcherName: null,
                                   outPkgDirectoryPath: outPkgDirectoryPath,                                  
                                 },
                               )
@@ -504,16 +507,16 @@ class QuarkCarlo extends Command {
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
                     // Making SnoreToast binary silent too, although this library is only meant for node exe
                     createNodeAppWithoutTerminal({
                       src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
                       dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
                     })
                     if (install) {
-                      this.installShortcut(binaryName, platform, pngOutPath, { url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
+                      this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
                       this.log('Binary created successfully')
                     }

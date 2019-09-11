@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
 import pngToIco = require('png-to-ico')
-import icoToPng = require('ico-to-png')
+import ICO = require('icojs')
 import dedent = require('dedent-js')
 import semver = require('semver')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
@@ -176,21 +176,31 @@ const getIconFiles = (
                     log('Ico file saved...')
                   }
                 }
-                icoToPng(icoBuf, iconSizes[iconSizes.length - 1], { scaleUp: true })
-                  .then((pngBuf) => {
-                    writeFile(
-                      tempPngOutPath,
-                      pngBuf,
-                      (err) => {
-                        if (err) {
-                          reject('writing png file failed')
-                        } else {
-                          cp(tempPngOutPath, pngOutPath)
-                          log('Png icon file saved...')
-                          resolve()
-                        }
-                      },
-                    )
+                ICO.parse(icoBuf, 'image/png')
+                  .then((images) => {
+                    const largestImage = images.sort((a, b) => b.width - a.width)[0];
+                    return sharp(Buffer.from(largestImage.buffer))
+                      .resize(iconSizes[iconSizes.length - 1], iconSizes[iconSizes.length - 1])
+                      .png()
+                      .toBuffer()
+                      .then((pngBuf) => {
+                        writeFile(
+                          tempPngOutPath,
+                          pngBuf,
+                          (err) => {
+                            if (err) {
+                              reject('writing png file failed')
+                            } else {
+                              cp(tempPngOutPath, pngOutPath)
+                              log('Png icon file saved...')
+                              resolve()
+                            }
+                          },
+                        )
+                      })
+                      .catch((err) => {
+                        throw err
+                      })
                   })
                   .catch(() => reject('Converting favicon.ico into png failed'))
               }

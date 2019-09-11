@@ -10,7 +10,7 @@
   "author": "SiDevesh",
   "license": "MIT",
   "dependencies": {
-    "carlo": "git+https://git@github.com/SiDevesh/carlo.git",
+    "carlo-quark-fork": "^0.9.46",
     "node-notifier": "5.4.3"
   }
 }

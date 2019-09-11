@@ -511,7 +511,7 @@ class QuarkCarlo extends Command {
                         Please create a shortcut of the binary manually,
                         and assign icon.ico to the shortcut manually on Windows.
                       `))
-                      this.log('Binary created successfully')
+                      this.log('Application created successfully')
                     }
                   } else {
                     mkdir(`${outPkgDirectoryPath}/notifier`)
@@ -529,7 +529,7 @@ class QuarkCarlo extends Command {
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
-                      this.log('Binary created successfully')
+                      this.log('Application created successfully')
                     }
                   }
                 })

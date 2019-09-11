@@ -10,10 +10,11 @@ Turn web apps into lightweight native desktop applications that use chrome as we
 
 ## Usage
 ```sh-session
-$ npx quark-carlo --name Gmail --url https://mail.google.com --install
-$ npx quark-carlo (-v|--version|version)
+$ npm install --global quark-carlo
+$ quark-carlo --name Whatsapp --url https://web.whatsapp.com --install
+$ quark-carlo (-v|--version|version)
 quark-carlo/1.0.15 linux-x64 node-v10.16.2
-$ npx quark-carlo --help [COMMAND]
+$ quark-carlo --help [COMMAND]
 USAGE
   $ quark-carlo
 

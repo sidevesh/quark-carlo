@@ -1,3 +1,4 @@
+const os = require('os');
 const carlo = require('carlo');
 const notifier = require('node-notifier');
 const path = require('path');
@@ -50,8 +51,8 @@ const polyRideNotification = require('./notification_polyride');
       title: opts.title,
       message: opts.message,
       sound: opts.sound,
-      icon: path.join(path.dirname(process.argv[0]), config.iconPath),
-      appName: config.appNameForWindowsToasts,
+      icon: os.type() === 'Linux' && process.env.DESKTOP_SESSION === 'pantheon' ? config.appName : path.join(path.dirname(process.argv[0]), config.iconPath),
+      appName: config.appName,
       wait: true,
     });
     app.evaluate(`window.Notification.notifyNotificationInstances['${opts.uniqueId}'].dispatchEvent(new Event('show'))`);

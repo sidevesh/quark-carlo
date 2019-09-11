@@ -400,7 +400,7 @@ class QuarkCarlo extends Command {
       height,
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
-      appNameForWindowsToasts: binaryName,
+      appName: binaryName,
       debug,
     })
     tempDir({ unsafeCleanup: true }, (err, tempDirPath) => {

@@ -1,5 +1,5 @@
 const os = require('os');
-const carlo = require('carlo');
+const carlo = require('carlo-quark-fork');
 const notifier = require('node-notifier');
 const path = require('path');
 const config = require('./config.json');

@@ -54,6 +54,7 @@ const polyRideNotification = require('./notification_polyride');
       icon: os.type() === 'Linux' && process.env.DESKTOP_SESSION === 'pantheon' ? config.appName : path.join(path.dirname(process.argv[0]), config.iconPath),
       appName: config.appName,
       wait: true,
+      customPath: config.platform === 'macos' ? path.join(path.dirname(process.argv[0]), 'notifier', 'mac.noindex', 'terminal-notifier') : undefined,
     });
     app.evaluate(`window.Notification.notifyNotificationInstances['${opts.uniqueId}'].dispatchEvent(new Event('show'))`);
   });

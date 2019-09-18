@@ -411,6 +411,7 @@ class QuarkCarlo extends Command {
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
       appName: binaryName,
+      platform: getNormalizedPlatform(platform),
       debug,
     })
     tempDir({ unsafeCleanup: true }, (err, tempDirPath) => {
@@ -461,9 +462,9 @@ class QuarkCarlo extends Command {
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/mac.noindex/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/mac.noindex/MainMenu.nib`)
                     // Making SnoreToast binary silent too, although this library is only meant for node exe
                     createNodeAppWithoutTerminal({
                       src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
@@ -518,9 +519,9 @@ class QuarkCarlo extends Command {
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/terminal-notifier`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/Info.plist`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/MainMenu.nib`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/MacOS/terminal-notifier`, `${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Info.plist`, `${outPkgDirectoryPath}/notifier/mac.noindex/Info.plist`)
+                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/Contents/Resources/en.lproj/MainMenu.nib`, `${outPkgDirectoryPath}/notifier/mac.noindex/MainMenu.nib`)
                     // Making SnoreToast binary silent too, although this library is only meant for node exe
                     createNodeAppWithoutTerminal({
                       src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,

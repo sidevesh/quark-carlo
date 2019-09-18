@@ -37,24 +37,30 @@ const polyRideNotification = require('./notification_polyride');
   });
   app.serveOrigin(new URL(config.url).origin);
 
-  notifier.on('click', () => {
+  let notifierInstance = notifier;
+  if (config.platform === 'macos') {
+    notifierInstance = new notifier.NotificationCenter({
+      customPath: path.join(path.dirname(process.argv[0]), 'notifier', 'mac.noindex', 'terminal-notifier.app', 'Contents', 'MacOS', 'terminal-notifier'),
+    });
+  }
+
+  notifierInstance.on('click', () => {
     app.mainWindow().bringToFront();
     app.evaluate(`window.Notification.getLastNotification().dispatchEvent(new Event('click'))`);
   });
-  notifier.on('timeout', () => {
+  notifierInstance.on('timeout', () => {
     app.evaluate(`window.Notification.getLastNotification().dispatchEvent(new Event('close'))`);
   });
 
   await app.exposeFunction('notify', (serializedOpts) => {
     const opts = JSON.parse(serializedOpts);
-    notifier.notify({
+    notifierInstance.notify({
       title: opts.title,
       message: opts.message,
       sound: opts.sound,
       icon: os.type() === 'Linux' && process.env.DESKTOP_SESSION === 'pantheon' ? config.appName : path.join(path.dirname(process.argv[0]), config.iconPath),
       appName: config.appName,
       wait: true,
-      customPath: config.platform === 'macos' ? path.join(path.dirname(process.argv[0]), 'notifier', 'mac.noindex', 'terminal-notifier') : undefined,
     });
     app.evaluate(`window.Notification.notifyNotificationInstances['${opts.uniqueId}'].dispatchEvent(new Event('show'))`);
   });

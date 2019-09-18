@@ -459,6 +459,7 @@ class QuarkCarlo extends Command {
                       dst: outPkgBinaryPath,
                     })
                     mkdir(`${outPkgDirectoryPath}/notifier`)
+                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
@@ -516,6 +517,7 @@ class QuarkCarlo extends Command {
                     }
                   } else {
                     mkdir(`${outPkgDirectoryPath}/notifier`)
+                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)

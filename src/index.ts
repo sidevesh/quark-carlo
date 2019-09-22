@@ -2,7 +2,7 @@ import {Command, flags} from '@oclif/command'
 import { platform as osPlatform, type as platformType, release as platformRelease } from 'os'
 import { writeFile } from 'fs'
 import { dir as tempDir } from 'tmp'
-import { cp, echo, exec, pwd, cd, cat, mkdir, test } from 'shelljs'
+import { cp, mv, echo, exec, pwd, cd, cat, mkdir, test } from 'shelljs'
 import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
@@ -10,6 +10,7 @@ import pngToIco = require('png-to-ico')
 import ICO = require('icojs')
 import dedent = require('dedent-js')
 import semver = require('semver')
+const icnsConvert = require('@fiahfy/icns-convert')
 const createNodeAppWithoutTerminal = require('create-nodew-exe')
 const windowsShortcut = require('windows-shortcuts')
 const { exec: pkgExec } = require('pkg')
@@ -17,7 +18,7 @@ const { exec: pkgExec } = require('pkg')
 const placeholderAppName = 'quark-carlo-placeholder'
 const iconSizes = [16, 24, 32, 48, 64, 72, 96, 128, 256]
 
-const garanteeSemverFormat = (version:string) => {
+const guranteeSemverFormat = (version:string) => {
   if (version.split('.').length === 2) {
     version += '.0'
   }
@@ -26,7 +27,7 @@ const garanteeSemverFormat = (version:string) => {
 const isLessThanWin8 =() => {
   return (
     platformType() === 'Windows_NT' &&
-    semver.satisfies(garanteeSemverFormat(platformRelease()), '<6.2.9200')
+    semver.satisfies(guranteeSemverFormat(platformRelease()), '<6.2.9200')
   )
 }
 const isLinux = () => osPlatform() === 'linux'
@@ -92,21 +93,26 @@ const getIconFiles = (
   url:string,
   log:Function,
   isIcoNeeded = true,
+  isIcnsNeeded = true,
   {
     tempPngOutPath = null,
     tempIcoOutPath = null,
+    tempIcnsOutPath = null,
     pngOutPath = null,
     icoOutPath = null,
+    icnsOutPath = null,
   }:{
     tempPngOutPath:string|null,
     tempIcoOutPath:string|null,
+    tempIcnsOutPath:string|null,
     pngOutPath:string|null,
     icoOutPath:string|null,
+    icnsOutPath:string|null,
   },
 ) => new Promise((resolve, reject) => {
   log('Looking for appropriate icon image...')
-  if (tempPngOutPath=== null || tempIcoOutPath === null) {
-    return reject('tempPngOutPath and tempIcoOutPath not supplied')
+  if (tempPngOutPath=== null || tempIcoOutPath === null || tempIcnsOutPath === null) {
+    return reject('tempPngOutPath, tempIcoOutPath or tempIcnsOutPath not supplied')
   }
   if (pngOutPath === null) {
     return reject('pngOutPath not supplied')
@@ -140,7 +146,31 @@ const getIconFiles = (
                             } else {
                               cp(tempIcoOutPath, icoOutPath)
                               log('Ico file generated...')
-                              resolve()
+                              if (isIcnsNeeded) {
+                                icnsConvert(pngBuf)
+                                  .then((icnsBuf:any) => {
+                                    writeFile(
+                                      tempIcnsOutPath,
+                                      icnsBuf,
+                                      (err) => {
+                                        if (err) {
+                                          reject('writing icns file failed')
+                                        } else {
+                                          if (icnsOutPath === null) {
+                                            reject('icnsOutPath not supplied')
+                                          } else {
+                                            cp(tempIcnsOutPath, icnsOutPath)
+                                            log('Icns file generated...')
+                                            resolve()
+                                          }
+                                        }
+                                      },
+                                    )
+                                  })
+                                  .catch((err:any) => reject(err))
+                              } else {
+                                resolve()
+                              }
                             }
                           }
                         },
@@ -148,7 +178,31 @@ const getIconFiles = (
                     })
                     .catch((err:any) => reject(err))
                 } else {
-                  resolve()
+                  if (isIcnsNeeded) {
+                    icnsConvert(pngBuf)
+                    .then((icnsBuf:any) => {
+                      writeFile(
+                        tempIcnsOutPath,
+                        icnsBuf,
+                        (err) => {
+                          if (err) {
+                            reject('writing icns file failed')
+                          } else {
+                            if (icnsOutPath === null) {
+                              reject('icnsOutPath not supplied')
+                            } else {
+                              cp(tempIcnsOutPath, icnsOutPath)
+                              log('Icns file generated...')
+                              resolve()
+                            }
+                          }
+                        },
+                      )
+                    })
+                    .catch((err:any) => reject(err))
+                  } else {
+                    resolve()
+                  }
                 }
               }
             },
@@ -178,7 +232,7 @@ const getIconFiles = (
                 }
                 ICO.parse(icoBuf, 'image/png')
                   .then((images) => {
-                    const largestImage = images.sort((a, b) => b.width - a.width)[0];
+                    const largestImage = images.sort((a, b) => b.width - a.width)[0]
                     return sharp(Buffer.from(largestImage.buffer))
                       .resize(iconSizes[iconSizes.length - 1], iconSizes[iconSizes.length - 1])
                       .png()
@@ -193,7 +247,31 @@ const getIconFiles = (
                             } else {
                               cp(tempPngOutPath, pngOutPath)
                               log('Png icon file saved...')
-                              resolve()
+                              if (isIcnsNeeded) {
+                                icnsConvert(pngBuf)
+                                .then((icnsBuf:any) => {
+                                  writeFile(
+                                    tempIcnsOutPath,
+                                    icnsBuf,
+                                    (err) => {
+                                      if (err) {
+                                        reject('writing icns file failed')
+                                      } else {
+                                        if (icnsOutPath === null) {
+                                          reject('icnsOutPath not supplied')
+                                        } else {
+                                          cp(tempIcnsOutPath, icnsOutPath)
+                                          log('Icns file generated...')
+                                          resolve()
+                                        }
+                                      }
+                                    },
+                                  )
+                                })
+                                .catch((err:any) => reject(err))
+                              } else {
+                                resolve()
+                              }
                             }
                           },
                         )
@@ -356,7 +434,7 @@ class QuarkCarlo extends Command {
       } else if (isMac()) {
         this.log('Creating shortcut for mac os isn\'t supported yet')
       } else {
-        this.log(`Creating shortcut for ${getPlatform()} isn\'t supported yet`)
+        this.log(`To install the app, drag and drop the ${binaryName}.app file onto the Applications folder in Finder.`)
       }
     } else {
       this.error('Shortcut can only be installed if the platform is the same as the running platform')
@@ -411,6 +489,7 @@ class QuarkCarlo extends Command {
       iconPath: 'icon.png',
       additionalInternalHostnames: parsedAdditionalInternalHostnames,
       appName: binaryName,
+      dirName: filenameSafe(name),
       platform: getNormalizedPlatform(platform),
       debug,
     })
@@ -439,14 +518,18 @@ class QuarkCarlo extends Command {
               this.log('Generated binary successfully...')
               cp(tempPkgBinaryPath, outPkgBinaryPath)
               const icoOutPath = `${outPkgDirectoryPath}/icon.ico`
+              const icnsOutPath = `${outPkgDirectoryPath}/icon.icns`
               const pngOutPath = `${outPkgDirectoryPath}/icon.png`
               getIconFiles(
                 url,
                 (msg:any) => this.log(msg),
                 getNormalizedPlatform(platform) === 'win',
+                getNormalizedPlatform(platform) === 'macos',
                 {
                   tempIcoOutPath: `${tempDirPath}/icon.ico`,
                   icoOutPath,
+                  tempIcnsOutPath: `${tempDirPath}/icon.icns`,
+                  icnsOutPath,
                   tempPngOutPath: `${tempDirPath}/icon.png`,
                   pngOutPath,
                 },
@@ -459,12 +542,9 @@ class QuarkCarlo extends Command {
                       dst: outPkgBinaryPath,
                     })
                     mkdir(`${outPkgDirectoryPath}/notifier`)
-                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex`)
-                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier.app`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
                     cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
-                    cp('-R', `${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/*`, `${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier.app`)
                     // Making SnoreToast binary silent too, although this library is only meant for node exe
                     createNodeAppWithoutTerminal({
                       src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
@@ -488,7 +568,6 @@ class QuarkCarlo extends Command {
                                 platform,
                                 pngOutPath,
                                 {
-                                  
                                   shortcutName: binaryName,
                                   shortcutFilePath: shortcutOutPath,
                                   icoOutPath: icoOutPath,
@@ -514,19 +593,31 @@ class QuarkCarlo extends Command {
                       `))
                       this.log('Application created successfully')
                     }
+                  } else if (getNormalizedPlatform(platform) === 'linux') {
+                    if (install) {
+                      this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
+                    } else {
+                      this.log('Application created successfully')
+                    }
+                  } else if (getNormalizedPlatform(platform) === 'macos') {
+                    mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app`)
+                    mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents`)
+                    mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/MacOS`)
+                    mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources`)
+                    cat(`${__dirname}/../installation/macos/Info.plist`)
+                      .sed('@@NAME@@', filenameSafeDisplayName(name))
+                      .sed('@@FILENAME@@', binaryName)
+                      .to(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Icon.plist`)
+                    mv(`${outPkgDirectoryPath}/icon.png`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/icon.png`)
+                    mv(`${outPkgDirectoryPath}/icon.icns`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/${binaryName}.icns`)
+                    mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/terminal-notifier.app`)
+                    cp('-R', `${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/*`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/terminal-notifier.app`)
+                    mv(`${outPkgDirectoryPath}/${binaryName}`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/MacOS/${binaryName}`)
+                    if (install) {
+                      this.log(`To install the app, drag and drop the ${binaryName}.app file onto the Applications folder in Finder.`)
+                    }
+                    this.log('Application created successfully')
                   } else {
-                    mkdir(`${outPkgDirectoryPath}/notifier`)
-                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex`)
-                    mkdir(`${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier.app`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu.exe`, `${outPkgDirectoryPath}/notifier/notifu.exe`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/notifu/notifu64.exe`, `${outPkgDirectoryPath}/notifier/notifu64.exe`)
-                    cp(`${tempDirPath}/node_modules/node-notifier/vendor/snoreToast/SnoreToast.exe`, `${outPkgDirectoryPath}/notifier/SnoreToast.exe`)
-                    cp('-R', `${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/*`, `${outPkgDirectoryPath}/notifier/mac.noindex/terminal-notifier.app`)
-                    // Making SnoreToast binary silent too, although this library is only meant for node exe
-                    createNodeAppWithoutTerminal({
-                      src: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
-                      dst: `${outPkgDirectoryPath}/notifier/SnoreToast.exe`,
-                    })
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
@@ -534,7 +625,7 @@ class QuarkCarlo extends Command {
                     }
                   }
                 })
-                .catch(err => this.error(err))
+                .catch((err:any) => this.error(err))
             })
             .catch(() => this.error('Binary packaging failed'))
         } else {

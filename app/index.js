@@ -1,9 +1,31 @@
 const os = require('os');
+const fs = require('fs');
 const carlo = require('carlo-quark-fork');
 const notifier = require('node-notifier');
 const path = require('path');
 const config = require('./config.json');
 const polyRideNotification = require('./notification_polyride');
+
+const generateProfilePath = (platform, dirName) => {
+  if (platform === 'win') {
+    if (!fs.existsSync(path.join(os.homedir(), 'AppData', 'Local', dirName))) {
+      fs.mkdirSync(path.join(os.homedir(), 'AppData', 'Local', dirName));
+    }
+    return path.join(os.homedir(), 'AppData', 'Local', dirName, 'profile');
+  } else if (platform === 'macos') {
+    if (!fs.existsSync(path.join(os.homedir(), 'Library', 'Application Support', dirName))) {
+      fs.mkdirSync(path.join(os.homedir(), 'Library', 'Application Support', dirName));
+    }
+    return path.join(os.homedir(), 'Library', 'Application Support', dirName, 'profile');
+  } else if (platform === 'linux') {
+    if (!fs.existsSync(path.join(os.homedir(), '.config', dirName))) {
+      fs.mkdirSync(path.join(os.homedir(), '.config', dirName));
+    }
+    return path.join(os.homedir(), '.config', dirName, 'profile');
+  } else {
+    return path.join(path.dirname(process.argv[0]), 'profile');
+  }
+};
 
 (async () => {
   const app = await carlo.launch({
@@ -11,8 +33,8 @@ const polyRideNotification = require('./notification_polyride');
     height: config.height,
     title: config.name,
     url: config.url,
-    icon: path.join(path.dirname(process.argv[0]), config.iconPath),
-    userDataDir: path.join(path.dirname(process.argv[0]), '.profile'),
+    icon: config.platform === 'macos' ? path.join(path.dirname(path.dirname(process.argv[0])), 'Resources', config.iconPath) : path.join(path.dirname(process.argv[0]), config.iconPath),
+    userDataDir: generateProfilePath(config.platform, config.dirName),
     bgcolor: '#eeeeee',
   });
   app.on('exit', () => process.exit());
@@ -40,7 +62,7 @@ const polyRideNotification = require('./notification_polyride');
   let notifierInstance = notifier;
   if (config.platform === 'macos') {
     notifierInstance = new notifier.NotificationCenter({
-      customPath: path.join(path.dirname(process.argv[0]), 'notifier', 'mac.noindex', 'terminal-notifier.app', 'Contents', 'MacOS', 'terminal-notifier'),
+      customPath: path.join(path.dirname(path.dirname(process.argv[0])), 'Resources', 'terminal-notifier.app', 'Contents', 'MacOS', 'terminal-notifier'),
     });
   }
 
@@ -59,6 +81,10 @@ const polyRideNotification = require('./notification_polyride');
       message: opts.message,
       sound: opts.sound,
       icon: os.type() === 'Linux' && process.env.DESKTOP_SESSION === 'pantheon' ? config.appName : path.join(path.dirname(process.argv[0]), config.iconPath),
+      // Internally used in place of appID for Windows,
+      // more apt name as it shows the app's name on notification as whatever is given here,
+      // no uniqueness or pre register constraints of appID seem to apply,
+      // and appName for Windows is display name, not tokenized name
       appName: config.appName,
       wait: true,
     });

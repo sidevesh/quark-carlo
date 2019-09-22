@@ -607,7 +607,7 @@ class QuarkCarlo extends Command {
                     cat(`${__dirname}/../installation/macos/Info.plist`)
                       .sed('@@NAME@@', filenameSafeDisplayName(name))
                       .sed('@@FILENAME@@', binaryName)
-                      .to(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Icon.plist`)
+                      .to(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Info.plist`)
                     mv(`${outPkgDirectoryPath}/icon.png`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/icon.png`)
                     mv(`${outPkgDirectoryPath}/icon.icns`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/${binaryName}.icns`)
                     mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/terminal-notifier.app`)

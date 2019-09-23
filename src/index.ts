@@ -1,8 +1,8 @@
 import {Command, flags} from '@oclif/command'
 import { platform as osPlatform, type as platformType, release as platformRelease } from 'os'
-import { writeFile } from 'fs'
+import { writeFile, existsSync } from 'fs'
 import { dir as tempDir } from 'tmp'
-import { cp, mv, echo, exec, pwd, cd, cat, mkdir, test } from 'shelljs'
+import { cp, mv, echo, exec, pwd, cd, cat, mkdir, test, rm } from 'shelljs'
 import fetch from 'node-fetch'
 import pageIcon = require('page-icon')
 import sharp = require('sharp')
@@ -68,6 +68,13 @@ const getWindowsInstallationStartMenuShortcutFilesPath = () => {
   const homePath = pwd().valueOf()
   cd(execPath)
   return `${homePath}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs`
+}
+
+const getMacOSApplicationsPath = () => {
+  cd()
+  const homePath = pwd().valueOf()
+  cd(execPath)
+  return `${homePath}/Applications`
 }
 
 const filenameSafe = (str:string) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase()
@@ -432,9 +439,9 @@ class QuarkCarlo extends Command {
           })
         }
       } else if (isMac()) {
-        this.log('Creating shortcut for mac os isn\'t supported yet')
-      } else {
         this.log(`To install the app, drag and drop the ${binaryName}.app file onto the Applications folder in Finder.`)
+      } else {
+        this.log('Creating shortcut for the current platform isn\'t supported yet.')
       }
     } else {
       this.error('Shortcut can only be installed if the platform is the same as the running platform')
@@ -511,6 +518,9 @@ class QuarkCarlo extends Command {
               const outPkgBinaryName = getNormalizedPlatform(platform) === 'win' ? `${binaryName}.exe` : binaryName
               const tempPkgBinaryPath = `${tempDirPath}/${tempPkgBinaryName}`
               const outPkgBinaryPath = `${outPkgDirectoryPath}/${outPkgBinaryName}`
+              if (existsSync(outPkgDirectoryPath)) {
+                rm('-rf', outPkgDirectoryPath)
+              }
               mkdir(outPkgDirectoryPath)
               if (!test('-f', tempPkgBinaryPath)) {
                 throw 'Binary packaging failed'
@@ -578,7 +588,7 @@ class QuarkCarlo extends Command {
                                 },
                               )
                             } else {
-                              this.log('Application created successfully')
+                              this.log('Application created successfully.')
                             }
                           } else {
                             this.error('Creating shortcut file failed')
@@ -591,13 +601,13 @@ class QuarkCarlo extends Command {
                         Please create a shortcut of the binary manually,
                         and assign icon.ico to the shortcut manually on Windows.
                       `))
-                      this.log('Application created successfully')
+                      this.log('Application created successfully.')
                     }
                   } else if (getNormalizedPlatform(platform) === 'linux') {
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
-                      this.log('Application created successfully')
+                      this.log('Application created successfully.')
                     }
                   } else if (getNormalizedPlatform(platform) === 'macos') {
                     mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app`)
@@ -613,15 +623,29 @@ class QuarkCarlo extends Command {
                     mkdir(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/terminal-notifier.app`)
                     cp('-R', `${tempDirPath}/node_modules/node-notifier/vendor/mac.noindex/terminal-notifier.app/*`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/Resources/terminal-notifier.app`)
                     mv(`${outPkgDirectoryPath}/${binaryName}`, `${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app/Contents/MacOS/${binaryName}`)
-                    if (install) {
-                      this.log(`To install the app, drag and drop the ${binaryName}.app file onto the Applications folder in Finder.`)
+                    if (existsSync(`${filenameSafeDisplayName(name)}.app`)) {
+                      rm('-rf', `${filenameSafeDisplayName(name)}.app`)
                     }
-                    this.log('Application created successfully')
+                    mv(`${outPkgDirectoryPath}/${filenameSafeDisplayName(name)}.app`, `${filenameSafeDisplayName(name)}.app`)
+                    rm('-rf', outPkgDirectoryPath)
+                    this.log('Application created successfully.')
+                    if (install) {
+                      const installedApplicationsDirectoryPath = `${getMacOSApplicationsPath()}/${filenameSafeDisplayName(name)}.app`
+                      if (existsSync(installedApplicationsDirectoryPath)) {
+                        rm('-rf', installedApplicationsDirectoryPath)
+                      }
+                      mkdir(installedApplicationsDirectoryPath)
+                      cp('-R', `${filenameSafeDisplayName(name)}.app/*`, installedApplicationsDirectoryPath)
+                      rm('-rf', `${filenameSafeDisplayName(name)}.app`)
+                      this.log('Application installed successfully...')
+                      this.log('To remove installation of shortcut, remove the following:')
+                      this.log(installedApplicationsDirectoryPath)
+                    }
                   } else {
                     if (install) {
                       this.installShortcut(binaryName, platform, pngOutPath, { launcherName: filenameSafeDisplayName(name), url, binaryPath: outPkgBinaryPath, shortcutFilePath: null, shortcutName: null, icoOutPath: null, outPkgDirectoryPath: null })
                     } else {
-                      this.log('Application created successfully')
+                      this.log('Application created successfully.')
                     }
                   }
                 })

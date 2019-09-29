@@ -24,7 +24,7 @@ jobs:
         run: npm install
       - name: Publish package
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.npm_token }}" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
           LATEST=`npm view . version`
           CURRENT=`cat package.json | jq -r .version`
           if [ "$LATEST" != "$CURRENT" ]

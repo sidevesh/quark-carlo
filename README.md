@@ -1,7 +1,7 @@
 quark-carlo
 ===========
 
-Turn web apps into lightweight native desktop applications that use chrome as webview, powered by the awesome carlo
+Turn web apps into lightweight native desktop applications that use chrome as webview, powered by the awesome [carlo](https://github.com/GoogleChromeLabs/carlo)
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/quark-carlo.svg)](https://npmjs.org/package/quark-carlo)

@@ -11,7 +11,7 @@
     "@fiahfy/icns-convert": "0.0.6",
     "@oclif/command": "^1.5.18",
     "@oclif/config": "^1.13.3",
-    "@oclif/plugin-help": "^2.2.1",
+    "@oclif/plugin-help": "^2.2.3",
     "create-nodew-exe": "^1.0.5",
     "dedent-js": "^1.0.1",
     "icojs": "^0.13.1",

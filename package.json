@@ -9,7 +9,7 @@
   "bugs": "https://github.com/SiDevesh/quark-carlo/issues",
   "dependencies": {
     "@fiahfy/icns-convert": "0.0.6",
-    "@oclif/command": "^1.5.18",
+    "@oclif/command": "^1.5.19",
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.1",
     "create-nodew-exe": "^1.0.5",

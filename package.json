@@ -2,11 +2,11 @@
   "name": "quark-carlo",
   "description": "Turn web apps into lightweight native desktop applications that use chrome as webview, powered by the awesome carlo",
   "version": "1.0.37",
-  "author": "SiDevesh",
+  "author": "sidevesh",
   "bin": {
     "quark-carlo": "./bin/run"
   },
-  "bugs": "https://github.com/SiDevesh/quark-carlo/issues",
+  "bugs": "https://github.com/sidevesh/quark-carlo/issues",
   "dependencies": {
     "@fiahfy/icns-convert": "0.0.6",
     "@oclif/command": "^1.5.18",
@@ -43,7 +43,7 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "homepage": "https://github.com/SiDevesh/quark-carlo",
+  "homepage": "https://github.com/sidevesh/quark-carlo",
   "keywords": [
     "oclif"
   ],
@@ -60,7 +60,7 @@
     "LICENSE",
     "README.md"
   ],
-  "repository": "SiDevesh/quark-carlo",
+  "repository": "sidevesh/quark-carlo",
   "scripts": {
     "posttest": "tslint -p test -t stylish",
     "prepack": "tsc -b",
